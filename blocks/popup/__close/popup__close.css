@@ -1,0 +1,18 @@
+.popup__close {
+    width: 58px;
+    height: 58px;
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    background-image: url('../../../images/Close\ Icon.png');
+    margin-top: -80%;
+    margin-right: -108%;
+}
+
+.popup__close:hover {
+    opacity: .6;
+    transition: .3s;
+}

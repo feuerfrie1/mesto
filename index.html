@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pages/index.css">
+    <title>Mesto Russia</title>
+    <meta name="description" content="четвёртая проектная работа Артёма Варламова на Яндекс.Практикуме">
+    <meta name="keywords" content="html, css, javascript">
+    <meta name="author" content="Артём Варламов">
+</head>
+<body class="root">
+    <div class="page">
+
+        <div class="popup">
+            <div class="popup__container">
+                <form class="popup__form">
+                        <p class="popup__title">Редактировать профиль</p>
+                        <input type="text" class="popup__name" value="Жак-Ив Кусто" required>
+                        <input type="text" class="popup__about" value="Исследователь океана" required>
+                        <button class="popup__submit"></button>
+                </form>
+                <button class="popup__close"></button>
+            </div>
+        </div>
+
+        <header class="header">
+            <img class=header__logo src="images/logo.svg" alt="Логотип">
+        </header>
+
+        <main class="content">
+            <section class="profile">
+                <div class="profile__info">
+                    <img class="profile__avatar" src="images/Avatar.png" alt="Фото профиля">
+                    <div class="profile__content">
+                        <h1 class="profile__info-title">Жак-Ив Кусто</h1>
+                        <h2 class="profile__info-subtitle">Исследователь океана</h2>
+                    </div>
+                    <button class="profile__edit-button"></button>
+                </div>
+                <button class="profile__add-button"></button>
+            </section>
+
+            <section class="elements">
+                <div class="elements__card">
+                    <img class="elements__image" src="images/Baikal.jpg" alt="Озеро Байкал">
+                    <div class="elements__content">
+                        <p class="elements__title">Байкал</p>
+                        <img class="elements__like" src="images/Like.svg">
+                    </div>
+                </div>
+                <div class="elements__card">
+                    <img class="elements__image" src="images/Elbrus.jpg" alt="Поле и гора Эльбрус">
+                    <div class="elements__content">
+                        <p class="elements__title">Гора Эльбрус</p>
+                        <img class="elements__like" src="images/Like.svg">
+                    </div>
+                </div>
+                <div class="elements__card">
+                    <img class="elements__image" src="images/Kamchatka.jpg" alt="Эльбрус на фоне звёздного неба">
+                    <div class="elements__content">
+                        <p class="elements__title">Камчатка</p>
+                        <img class="elements__like" src="images/Like.svg">
+                    </div>
+                </div>
+                <div class="elements__card">
+                    <img class="elements__image" src="images/Ivanovo.jpg" alt="Дома в Иваново">
+                    <div class="elements__content">
+                        <p class="elements__title">Иваново</p>
+                        <img class="elements__like" src="images/Like.svg">
+                    </div>
+                </div>
+                <div class="elements__card">
+                    <img class="elements__image" src="images/Karachaevsk.jpg" alt="Постройка в горах">
+                    <div class="elements__content">
+                        <p class="elements__title">Карачаевск</p>
+                        <img class="elements__like" src="images/Like.svg">
+                    </div>
+                </div>
+                <div class="elements__card">
+                    <img class="elements__image" src="images/Dombai.jpg" alt="Лес и горы">
+                    <div class="elements__content">
+                        <p class="elements__title">Домбай</p>
+                        <img class="elements__like" src="images/Like.svg">
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+           <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
