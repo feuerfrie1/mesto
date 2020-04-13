@@ -5,7 +5,6 @@
 @import url(../popup/__name/popup__name.css);
 @import url(../popup/__about/popup__about.css);
 @import url(../popup/__close/popup__close.css);
-@import url(../popup/_opened/popup_opened.css);
 
 .popup {
     display: none;
