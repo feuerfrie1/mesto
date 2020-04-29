@@ -5,6 +5,16 @@
 @import url(../popup/__name/popup__name.css);
 @import url(../popup/__about/popup__about.css);
 @import url(../popup/__close/popup__close.css);
+@import url(../popup/__createcard/popup__createcard.css);
+@import url(../popup/__create/popup__create.css);
+@import url(../popup/__createcardclose/popup__createcardclose.css);
+@import url(../popup/__createcardname/popup__createcardname.css);
+@import url(../popup/__createcardabout/popup__createcardabout.css);
+@import url(../popup/__imagescale/popup__imagescale.css);
+@import url(../popup/__imagecontainer/popup__imagecontainer.css);
+@import url(../popup/__image/popup__image.css);
+@import url(../popup/__imagescaleclose/popup__imagescaleclose.css);
+@import url(../popup/__imagename/popup__imagename.css);
 
 .popup {
     display: none;

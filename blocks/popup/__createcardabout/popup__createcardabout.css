@@ -1,8 +1,8 @@
-.popup__name {
+.popup__createcardabout {
     height: 27px;
     border-width: 0px 0px 1px;
     border-bottom: 1px solid silver;
-    margin-top: 54px;
+    margin-top: 29px;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -10,16 +10,8 @@
 }
 
 @media screen and (max-width: 400px) {
-    .popup__name {
-        margin-top: 20px;
+    .popup__createcardabout {
+        margin-top: 10px;
         font-size: 12px;
     }
   }
-
-.popup__name::-webkit-input-placeholder {
-    color: #000;
-};
-
-.popup__name::-moz-placeholder {
-    color: #000;
-};

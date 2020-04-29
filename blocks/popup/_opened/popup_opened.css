@@ -16,4 +16,22 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     animation: show .3s linear forwards;
+    z-index: 2;
+}
+
+@media screen and (max-width: 920px) {
+  .popup_opened {
+      margin-left: -10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .popup_opened {
+      margin: 0;
+  }
+}
+
+.popup_opened:hover {
+  opacity: .6;
+  transition: .3s;
 }

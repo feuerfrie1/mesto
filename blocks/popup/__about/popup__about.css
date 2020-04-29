@@ -1,5 +1,4 @@
 .popup__about {
-    width: 358px;
     height: 27px;
     border-width: 0px 0px 1px;
     border-bottom: 1px solid silver;
@@ -9,6 +8,13 @@
     font-size: 14px;
     line-height: 17px;
 }
+
+@media screen and (max-width: 400px) {
+    .popup__about {
+        margin-top: 10px;
+        font-size: 12px;
+    }
+  }
 
 .popup__about::-webkit-input-placeholder {
     color: #000;

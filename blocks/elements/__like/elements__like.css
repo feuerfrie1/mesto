@@ -1,3 +1,5 @@
+@import url(../../elements/__like/_active/elements__like_active.css);
+
 .elements__like {
     width: 21px;
     height: 19px;
@@ -8,4 +10,9 @@
     background-color: transparent;
     background-image: url('../../../images/Like.svg');
     cursor: pointer;
+    transition: .3s;
+}
+
+.elements__like:hover {
+    transform: scale(1.3);
 }

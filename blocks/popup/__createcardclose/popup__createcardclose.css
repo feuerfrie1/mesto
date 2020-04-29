@@ -1,4 +1,4 @@
-.popup__close {
+.popup__createcardclose {
     width: 58px;
     height: 58px;
     padding: 0;
@@ -12,22 +12,21 @@
     margin-right: -108%;
 }
 
-.popup__close:hover {
-    opacity: .6;
-    transition: .3s;
-}
-
 @media screen and (max-width: 600px) {
-    .popup__close {
-        margin-top: -104%;
+    .popup__createcardclose {
+        margin-top: -103%;
         margin-right: -110%;
     }
   }
 
   @media screen and (max-width: 400px) {
-    .popup__close {
+    .popup__createcardclose {
         margin-top: -114%;
         margin-right: -115%;
     }
   }
 
+.popup__createcardclose:hover {
+    opacity: .6;
+    transition: .3s;
+}
