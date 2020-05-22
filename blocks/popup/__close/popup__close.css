@@ -8,8 +8,8 @@
     background-color: transparent;
     cursor: pointer;
     background-image: url('../../../images/CloseIcon.png');
-    margin-top: -80%;
-    margin-right: -108%;
+    margin-top: -86%;
+    margin-right: -107%;
 }
 
 .popup__close:hover {

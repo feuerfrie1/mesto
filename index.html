@@ -5,38 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="pages/index.css">
     <title>Mesto Russia</title>
-    <meta name="description" content="пятая проектная работа Артёма Варламова на Яндекс.Практикуме">
+    <meta name="description" content="шестая проектная работа Артёма Варламова на Яндекс.Практикуме">
     <meta name="keywords" content="html, css, javascript">
     <meta name="author" content="Артём Варламов">
 </head>
 <body class="root">
     <div class="page">
 
-        <div class="popup">
+        <div class="popup" id="profile">
             <div class="popup__container">
-                <form class="popup__form">
-                        <p class="popup__title">Редактировать профиль</p>
-                        <input type="text" class="popup__name">
-                        <input type="text" class="popup__about">
-                        <button class="popup__submit">Сохранить</button>
+                <form class="form" id="profilename" method="post" action="#" name="form" novalidate>
+                    <p class="form__title">Редактировать профиль</p>
+                    <fieldset class="form__name">
+                        <input type="text" class="form__input form__input_name" name="nameinput" id="nameinput" value="Жак-Ив Кусто" pattern="^[A-Za-zА-Яа-я\s-]+$" minlength="2" maxlength="40" required>
+                        <span class="form__error" id="nameinput-error"></span>
+                    </fieldset>
+                    <fieldset class="form__about">
+                        <input type="text" class="form__input form__input_about" name="aboutinput" id="aboutinput" value="Исследователь океана" pattern="^[A-Za-zА-Яа-я\s-]+$" minlength="2" maxlength="200" required>
+                        <span class="form__error" id="aboutinput-error"></span>
+                    </fieldset>
+                    <button class="popup__submit" type="submit">Сохранить</button>
                 </form>
-                <button class="popup__close"></button>
+                <button class="popup__close" type="button"></button>
             </div>
         </div>
 
-        <div class="popup__createcard">
+        <div class="popup__createcard" id="card-create">
             <div class="popup__container">
-                <form class="popup__form">
-                        <p class="popup__title">Новое место</p>
-                        <input type="text" class="popup__createcardname" placeholder="Название" required>
-                        <input type="url" class="popup__createcardabout" placeholder="Ссылка на картинку" required>
-                        <button class="popup__create">Создать</button>
+                <form class="form" id="profilename" method="post" action="#" name="form" novalidate>
+                    <p class="popup__title">Новое место</p>
+                    <fieldset class="form__name">
+                        <input type="text" class="form__input form__input_card-name" placeholder="Название" name="nameinput" id="card-nameinput" pattern="^[A-Za-zА-Яа-я\s-]+$" minlength="1" maxlength="30" required>
+                        <span class="form__error" id="cardname-error"></span>
+                    </fieldset>
+                    <fieldset class="form__about">
+                        <input type="url" class="form__input form__input_card-about" placeholder="Ссылка на картинку" name="aboutinput" id="card-aboutinput" required>
+                        <span class="form__error" id="cardabout-error"></span>
+                    </fieldset>
+                    <button class="popup__create">Создать</button>
                 </form>
                 <button class="popup__createcardclose"></button>
             </div>
         </div>
 
-        <div class="popup__imagescale">
+        <div class="popup__imagescale" id="image-scale">
             <div class="popup__imagecontainer">
                 <img class="popup__image" src="">
                 <p class="popup__imagename"></p>
@@ -81,5 +93,6 @@
     </div>
     
     <script src="scripts/script.js"></script>
+    <script src="scripts/validate.js"></script>
 </body>
 </html>

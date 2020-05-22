@@ -4,10 +4,15 @@ const popupCreateCard = document.querySelector('.popup__createcard');
 const popupCloseButton = document.querySelector('.popup__close');
 const popupCreateCloseButton = document.querySelector('.popup__createcardclose');
 const submitButton = document.querySelector('.popup__submit');
-const nameInput = document.querySelector('.popup__name');
-const aboutInput = document.querySelector('.popup__about');
-const createSrcInput = document.querySelector('.popup__createcardabout');
-const createNameInput = document.querySelector('.popup__createcardname');
+const form = document.querySelectorAll('.form');
+const formCardCreate = document.querySelector(".form-card-create");
+const nameInput = document.querySelector('.form__input_name');
+const aboutInput = document.querySelector('.form__input_about');
+const createSrcInput = document.querySelector('.form__input_card-about');
+const createNameInput = document.querySelector('.form__input_card-name');
+const popupProfile = document.getElementById("profile");
+const popupCardCreate = document.getElementById("card-create");
+const popupScaleImage = document.getElementById("image-scale");
 const addButton = document.querySelector('.profile__add-button');
 const profileTitle = document.querySelector('.profile__info-title');
 const profileSubtitle = document.querySelector('.profile__info-subtitle');
@@ -19,6 +24,9 @@ const bigImage = document.querySelector('.popup__image');
 const bigImageName = document.querySelector('.popup__imagename');
 const popupImageScale = document.querySelector('.popup__imagescale');
 const popupImageScaleCloseButton = document.querySelector('.popup__imagescaleclose');
+const inputs = Array.from(document.querySelectorAll(".form__input"));
+const errors = Array.from(document.querySelectorAll(".form__error"));
+console.log(form);
 const initialCards = [
     {
         name: 'Архыз',
@@ -49,6 +57,7 @@ const initialCards = [
 function popupOpen() {
     document.getElementsByClassName('popup');
     popup.classList.add('popup_opened');
+    clearError(editButton);
     nameInput.value = profileTitle.textContent;
     aboutInput.value = profileSubtitle.textContent;
 }
