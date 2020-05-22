@@ -57,7 +57,6 @@ const initialCards = [
 function popupOpen() {
     document.getElementsByClassName('popup');
     popup.classList.add('popup_opened');
-    clearError(editButton);
     nameInput.value = profileTitle.textContent;
     aboutInput.value = profileSubtitle.textContent;
 }
