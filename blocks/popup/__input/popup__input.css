@@ -4,3 +4,15 @@
     border-bottom: 1px solid silver;
     padding-bottom: 10px;
 }
+
+@media screen and (max-width: 600px) {
+    .popup__input {
+        width: 258px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .popup__input {
+        width: 210px;
+    }
+}

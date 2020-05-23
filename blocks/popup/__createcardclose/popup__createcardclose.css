@@ -8,21 +8,21 @@
     background-color: transparent;
     cursor: pointer;
     background-image: url('../../../images/CloseIcon.png');
-    margin-top: -84%;
+    margin-top: -86%;
     margin-right: -107%;
 }
 
 @media screen and (max-width: 600px) {
     .popup__createcardclose {
-        margin-top: -103%;
+        margin-top: -106%;
         margin-right: -110%;
     }
   }
 
   @media screen and (max-width: 400px) {
     .popup__createcardclose {
-        margin-top: -114%;
-        margin-right: -115%;
+        margin-top: -117%;
+        margin-right: -111%;
     }
   }
 

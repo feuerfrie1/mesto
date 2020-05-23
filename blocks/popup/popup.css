@@ -18,6 +18,10 @@
 @import url(../popup/__input/popup__input.css);
 @import url(../popup/__field/popup__field.css);
 @import url(../popup/__error/popup__error.css);
+@import url(../popup/__input/_name/popup__input_name.css);
+@import url(../popup/__input/_about/popup__input_about.css);
+@import url(../popup/__input/_card-name/popup__input_card-name.css);
+@import url(../popup/__input/_card-about/popup__input_card-about.css);
 
 .popup {
     display: flex;

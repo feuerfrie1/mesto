@@ -22,7 +22,6 @@ const bigImage = document.querySelector('.popup__image');
 const bigImageName = document.querySelector('.popup__imagename');
 const popupImageScale = document.querySelector('.popup__imagescale');
 const popupImageScaleCloseButton = document.querySelector('.popup__imagescaleclose');
-const formElement = document.forms.form;
 
 const initialCards = [
     {

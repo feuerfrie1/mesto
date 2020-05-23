@@ -2,7 +2,7 @@
     height: 50px;
     width: 358px;
     padding: 0;
-    margin-top: 51px;
+    margin-top: 140px;
     border: none;
     font: inherit;
     font-style: normal;
@@ -20,9 +20,17 @@
     transition: .3s;
 }
 
+@media screen and (max-width: 600px) {
+    .popup__submit {
+        width: 258px;
+        margin-top: 120px;
+    }
+  }
+
 @media screen and (max-width: 400px) {
     .popup__submit {
-        margin-top: 36px;
+        width: 210px;
+        margin-top: 86px;
         font-size: 14px;
         height: 40px;
     }
