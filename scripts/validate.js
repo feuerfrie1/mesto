@@ -25,7 +25,7 @@ const setEventListeners = (object, formElement) => {
   const buttonElement = formElement.querySelector(object.submitButtonSelector);
   toggleButtonState(object, inputList, buttonElement);
   inputList.forEach((inputElement) => {
-    inputElement.addEventListener('input', function () {
+    inputElement.addEventListener('input', ()=> {
       isValid(object, formElement, inputElement);
       toggleButtonState(object, inputList, buttonElement);
     });
@@ -35,7 +35,7 @@ const setEventListeners = (object, formElement) => {
 const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
-  })
+  });
 };
 
 const toggleButtonState = (object, inputList, buttonElement) => {
@@ -58,11 +58,11 @@ const enableValidation = (object) => {
 });
 };
 
-enableValidation ({
+enableValidation({
   formElement: '.popup-container',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__submit',
-  inactiveButtonClass: '.popup__submit_inactive',
-  inputErrorClass: '.popup__error',
-  errorClass: '.popup__error_active'
+  inactiveButtonClass: 'popup__submit_inactive',
+  inputErrorClass: 'popup__error',
+  errorClass: 'popup__error_active'
 });
