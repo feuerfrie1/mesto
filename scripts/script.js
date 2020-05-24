@@ -22,6 +22,17 @@ const bigImage = document.querySelector('.popup__image');
 const bigImageName = document.querySelector('.popup__imagename');
 const popupImageScale = document.querySelector('.popup__imagescale');
 const popupImageScaleCloseButton = document.querySelector('.popup__imagescaleclose');
+const form = document.querySelectorAll('.popup__container');
+const cardName = document.getElementById("cardname");
+const cardAbout = document.getElementById("cardabout");
+const object = {
+formSelector: '.popup__container',
+inputSelector: '.popup__input',
+submitButtonSelector: '.popup__submit',
+inactiveButtonClass: 'popup__submit_inactive',
+inputErrorClass: 'popup__error',
+errorClass: 'popup__error_active'
+}
 
 const initialCards = [
     {
@@ -50,9 +61,25 @@ const initialCards = [
     }
 ];
 
+function clearError (elem) {
+    const object = {inactiveButtonClass: 'popup__submit_inactive'};
+    const errorSpanList = elem.querySelectorAll('.popup__error');
+    const errorInputList = Array.from(elem.querySelectorAll('.popup__input'));
+    const buttonElement = elem.querySelector('.popup__submit');
+    elem.firstElementChild.reset();
+    toggleButtonState(object, errorInputList, buttonElement);
+    errorSpanList.forEach((span) => {
+      span.classList.remove('popup__error_active');
+    });
+    errorInputList.forEach((input) => {
+      input.classList.remove('popup__input_error');
+    });
+  }
+
 function popupOpen() {
     document.getElementsByClassName('popup');
     popup.classList.add('popup_opened');
+    clearError(popup);
     nameInput.value = profileTitle.textContent;
     aboutInput.value = profileSubtitle.textContent;
     document.addEventListener('keydown', closeOnEscape);
@@ -69,6 +96,7 @@ function popupCreateCardClose() {
     popupCreateCard.classList.remove('popup_opened');
     createNameInput.value = "";
     createSrcInput.value = "";
+    document.removeEventListener('keydown', closeOnEscape);
 }
 
 function popupImageScaleClose() {
@@ -107,6 +135,7 @@ function defaultCards() {
 
 function popupCreateOpen() {
     popupCreateCard.classList.add('popup_opened');
+    document.addEventListener('keydown', closeOnEscape);
 }
 
 function formSubmitAddCard(evt) {
@@ -145,7 +174,12 @@ function closeOnClickOverlay (evt) {
     }
 }
 
-addButton.addEventListener('click', popupCreateOpen);
+addButton.addEventListener('click', function () {
+    clearError(popupCreateCard);
+    popupCreateOpen(popupCreateCard);
+    checkInputValidity(object, popupCreateCard, cardName);
+    checkInputValidity(object, popupCreateCard, cardAbout);
+});
 createButton.addEventListener('click', formSubmitAddCard);
 createButton.addEventListener('click', popupCreateCardClose);
 editButton.addEventListener('click', popupOpen);
