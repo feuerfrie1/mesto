@@ -9,8 +9,6 @@ const nameInput = document.querySelector('.popup__input_name');
 const aboutInput = document.querySelector('.popup__input_about');
 const createSrcInput = document.querySelector('.popup__input_card-about');
 const createNameInput = document.querySelector('.popup__input_card-name');
-const popupProfile = document.getElementById("profile");
-const popupCardCreate = document.getElementById("card-create");
 const popupScaleImage = document.getElementById("image-scale");
 const addButton = document.querySelector('.profile__add-button');
 const profileTitle = document.querySelector('.profile__info-title');
@@ -22,7 +20,6 @@ const bigImage = document.querySelector('.popup__image');
 const bigImageName = document.querySelector('.popup__imagename');
 const popupImageScale = document.querySelector('.popup__imagescale');
 const popupImageScaleCloseButton = document.querySelector('.popup__imagescaleclose');
-const form = document.querySelectorAll('.popup__container');
 const cardName = document.getElementById("cardname");
 const cardAbout = document.getElementById("cardabout");
 const object = {
@@ -102,6 +99,7 @@ function popupCreateCardClose() {
 function popupImageScaleClose() {
     document.getElementsByClassName('popup__imagescale popup_opened');
     popupImageScale.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closeOnEscape);
 }
 
 function formSubmitHandler (evt) {
@@ -160,6 +158,7 @@ function imageScale(evt) {
     bigImage.src = image.src;
     bigImageName.textContent = image.dataset.name;
     bigImage.alt = image.dataset.name;
+    document.addEventListener('keydown', closeOnEscape);
 }
 
 function closeOnEscape (evt) {
@@ -177,8 +176,6 @@ function closeOnClickOverlay (evt) {
 addButton.addEventListener('click', function () {
     clearError(popupCreateCard);
     popupCreateOpen(popupCreateCard);
-    checkInputValidity(object, popupCreateCard, cardName);
-    checkInputValidity(object, popupCreateCard, cardAbout);
 });
 createButton.addEventListener('click', formSubmitAddCard);
 createButton.addEventListener('click', popupCreateCardClose);
