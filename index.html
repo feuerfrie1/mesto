@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="pages/index.css">
     <title>Mesto Russia</title>
-    <meta name="description" content="шестая проектная работа Артёма Варламова на Яндекс.Практикуме">
+    <meta name="description" content="седьмая проектная работа Артёма Варламова на Яндекс.Практикуме">
     <meta name="keywords" content="html, css, javascript">
     <meta name="author" content="Артём Варламов">
 </head>
@@ -16,9 +16,9 @@
                 <form class="popup__container" method="POST" action="#" name="form" novalidate>
                     <p class="popup__title">Редактировать профиль</p>
                     <fieldset class="popup__field">
-                        <input type="text" class="popup__input popup__input_name" name="input" id="nameinput" value="Жак-Ив Кусто" pattern="^[A-Za-zА-Яа-я\s-]+$" minlength="2" maxlength="40" required>
+                        <input type="text" class="popup__input popup__input_name" name="input" id="nameinput" value="Жак-Ив Кусто" pattern="^[A-Za-zА-ЯЁёа-я\s-]+$" minlength="2" maxlength="40" required>
                         <span class="popup__error" id="nameinput-error"></span>
-                        <input type="text" class="popup__input popup__input_about" name="input" id="aboutinput" value="Исследователь океана" pattern="^[A-Za-zА-Яа-я\s-]+$" minlength="2" maxlength="200" required>
+                        <input type="text" class="popup__input popup__input_about" name="input" id="aboutinput" value="Исследователь океана" pattern="^[A-Za-zА-ЯЁёа-я\s-]+$" minlength="2" maxlength="200" required>
                         <span class="popup__error" id="aboutinput-error"></span>
                     </fieldset>
                     <button class="popup__submit" type="submit">Сохранить</button>
@@ -83,8 +83,8 @@
            <p class="footer__copyright">&copy; 2020 Artem Varlamov</p>
         </footer>
     </div>
-    
-    <script src="scripts/script.js"></script>
-    <script src="scripts/validate.js"></script>
+    <script type="module" src="/scripts/index.js"></script>
+    <script type="module" src="/scripts/Card.js"></script>
+    <script type="module" src="/scripts/FormValidator.js"></script>
 </body>
 </html>
