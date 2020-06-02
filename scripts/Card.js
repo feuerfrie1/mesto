@@ -31,8 +31,6 @@ const initialCards = [
   },
 ];
 
-export { Card };
-
 import {
   bigImageName,
   imageScaleButton,
@@ -40,10 +38,11 @@ import {
   imageScale,
 } from "./index.js";
 
-class Card {
-  constructor(name, picture) {
+export default class Card {
+  constructor(name, picture, cardSelector) {
     this._name = name;
     this._picture = picture;
+    this._cardSelector = cardSelector;
   }
 
   _getTemplate() {
@@ -71,6 +70,7 @@ class Card {
 
   _delete() {
     this._element.remove();
+    this._element = null;
   }
 
   _setEventListeners() {
