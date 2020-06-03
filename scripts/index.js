@@ -78,11 +78,11 @@ function popupCreateOpen() {
 function formSubmitAddCard(evt) {
   evt.preventDefault();
   const object = {};
-  object.picture = createSrcInput.value;
+  object.link = createSrcInput.value;
   object.name = createNameInput.value;
-  const card = new Card(object.name, object.picture);
+  const card = new Card(object, '.card');
   document.querySelector(".elements").prepend(card.generateCard());
-  closeAllPopups();
+  popupClose();
 }
 
 export function imageScale(form) {

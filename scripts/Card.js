@@ -39,25 +39,24 @@ import {
 } from "./index.js";
 
 export default class Card {
-  constructor(name, picture, cardSelector) {
-    this._name = name;
-    this._picture = picture;
+  constructor(data, cardSelector) {
+    this._name = data.name;
+    this._link = data.link;
     this._cardSelector = cardSelector;
   }
 
   _getTemplate() {
     const cardElement = document
-      .querySelector("#elements-template")
+      .querySelector(this._cardSelector)
       .content.querySelector(".elements__card")
       .cloneNode(true);
-    this._element = cardElement;
-    return this._element;
+    return cardElement;
   }
 
   generateCard() {
-    this._getTemplate();
+    this._element = this._getTemplate();
     this._setEventListeners();
-    this._element.querySelector(".elements__image").src = `${this._picture}`;
+    this._element.querySelector(".elements__image").src = this._link;
     this._element.querySelector(".elements__title").textContent = this._name;
     return this._element;
   }
@@ -99,6 +98,7 @@ export default class Card {
 }
 
 initialCards.forEach((item) => {
-  const card = new Card(item.name, item.link);
-  document.querySelector(".elements").append(card.generateCard());
+  const card = new Card(item, ".card");
+  const cardElement = card.generateCard();
+  document.querySelector(".elements").append(cardElement);
 });
