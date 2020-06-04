@@ -92,7 +92,7 @@ export default class Card {
 
   _imageScale() {
     bigImageName.textContent = this._name;
-    bigImage.src = this._picture;
+    bigImage.src = this._link;
     imageScale(imageScaleButton);
   }
 }

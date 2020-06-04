@@ -2,7 +2,7 @@ import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 
 const page = document.querySelector(".page");
-const editButton = document.querySelector(".profile__edit-button");
+export const editButton = document.querySelector(".profile__edit-button");
 const popup = document.querySelector(".popup");
 const popupCreateCard = document.querySelector(".popup__createcard");
 const popupCloseButton = document.querySelector(".popup__close");
@@ -10,10 +10,10 @@ const popupCreateCloseButton = document.querySelector(".popup__createcardclose")
 const submitButton = document.querySelector(".popup__submit");
 const nameInput = document.querySelector(".popup__input_name");
 const aboutInput = document.querySelector(".popup__input_about");
-const createSrcInput = document.querySelector(".popup__input_card-about");
-const createNameInput = document.querySelector(".popup__input_card-name");
+export const createSrcInput = document.querySelector(".popup__input_card-about");
+export const createNameInput = document.querySelector(".popup__input_card-name");
 const popupScaleImage = document.getElementById("image-scale");
-const addButton = document.querySelector(".profile__add-button");
+export const addButton = document.querySelector(".profile__add-button");
 const profileTitle = document.querySelector(".profile__info-title");
 const profileSubtitle = document.querySelector(".profile__info-subtitle");
 const createButton = document.querySelector(".popup__submit_create");
@@ -33,25 +33,8 @@ const object = {
   errorClass: "popup__error_active",
 };
 
-function clearError(elem) {
-  const object = { inactiveButtonClass: "popup__submit_inactive" };
-  const errorSpanList = elem.querySelectorAll(".popup__error");
-  const errorInputList = Array.from(elem.querySelectorAll(".popup__input"));
-  const buttonElement = elem.querySelector(".popup__submit");
-  elem.firstElementChild.reset();
-  const resetButton = new FormValidator(object, elem);
-  resetButton._toggleButtonState(errorInputList, buttonElement);
-  errorSpanList.forEach((span) => {
-    span.classList.remove("popup__error_active");
-  });
-  errorInputList.forEach((input) => {
-    input.classList.remove("popup__input_error");
-  });
-}
-
 function popupOpen() {
   popup.classList.add("popup_opened");
-  clearError(popup);
   nameInput.value = profileTitle.textContent;
   aboutInput.value = profileSubtitle.textContent;
   document.addEventListener("keydown", closeOnEscape);
@@ -80,7 +63,7 @@ function formSubmitAddCard(evt) {
   const object = {};
   object.link = createSrcInput.value;
   object.name = createNameInput.value;
-  const card = new Card(object, '.card');
+  const card = new Card(object, ".card");
   document.querySelector(".elements").prepend(card.generateCard());
   popupClose();
 }
@@ -119,7 +102,6 @@ function checkFormFields() {
 }
 
 addButton.addEventListener("click", function () {
-  clearError(popupCreateCard);
   popupCreateOpen(popupCreateCard);
 });
 createButton.addEventListener("click", formSubmitAddCard);

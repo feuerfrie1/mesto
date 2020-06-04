@@ -1,3 +1,9 @@
+import {
+  editButton,
+  addButton,
+  createSrcInput,
+  createNameInput,
+} from "./index.js";
 export default class FormValidator {
   constructor(object, element) {
     this._element = element;
@@ -50,10 +56,28 @@ export default class FormValidator {
     }
   };
 
+  _clearError(elem) {
+    const object = { inactiveButtonClass: "popup__submit_inactive" };
+    const errorSpanList = elem.querySelectorAll(".popup__error");
+    const errorInputList = Array.from(elem.querySelectorAll(".popup__input"));
+    const buttonElement = elem.querySelector(".popup__submit");
+    const resetButton = new FormValidator(object, elem);
+    resetButton._toggleButtonState(errorInputList, buttonElement);
+    errorSpanList.forEach((span) => {
+      span.classList.remove("popup__error_active");
+    });
+    errorInputList.forEach((input) => {
+      input.classList.remove("popup__input_error");
+      createSrcInput.value = "";
+      createNameInput.value = "";
+    });
+  }
+
   _setEventListeners(formElement) {
     const inputList = Array.from(
       formElement.querySelectorAll(this._inputSelector)
     );
+    const createButton = document.querySelector(".popup__submit_create");
     const buttonElement = formElement.querySelector(this._submitButtonSelector);
     this._toggleButtonState(inputList, buttonElement);
     inputList.forEach((inputElement) => {
@@ -61,6 +85,15 @@ export default class FormValidator {
         this._checkInputValidity(formElement, inputElement);
         this._toggleButtonState(inputList, buttonElement);
       });
+    });
+    addButton.addEventListener("click", () => {
+      this._clearError(formElement);
+    });
+    editButton.addEventListener("click", () => {
+      this._clearError(formElement);
+    });
+    createButton.addEventListener("click", () => {
+      this._clearError(formElement);
     });
   }
 
