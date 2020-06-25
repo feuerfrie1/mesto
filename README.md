@@ -1,4 +1,4 @@
-# Project Work 7: [Место](https://feuerfrie1.github.io/mesto/)
+# Project Work 8: [Место](https://feuerfrie1.github.io/mesto/)
 
 ### Review
 
@@ -14,7 +14,11 @@
 
 ## Update 1.3
 
-Проведён рефакторинг кода, JavaScript разбит на модули. Теперь сайт проще поддерживать! 
+Проведён рефакторинг кода, JavaScript разбит на модули. Теперь сайт проще поддерживать!
+
+## Update 1.4
+
+Добавлены компоненты, а также финальная сборка проекта с помощью WebPack.
 
 ## Technologies
 
@@ -24,6 +28,7 @@
   - Adaptive/Responsive layout
   - BEM methodology
   - JavaScript
+  - WebPack
   
 ## Plans to finalize
 
