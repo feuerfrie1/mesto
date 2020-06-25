@@ -1,5 +1,18 @@
-import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
+
+import {Card} from "../scripts/components/Card.js";
+import {FormValidator} from "../scripts/components/FormValidator.js";
+import {Popup} from "../scripts/components/Popup.js";
+import {PopupWithForm} from "../scripts/components/PopupWithForm.js";
+import {PopupWithImage} from "../scripts/components/PopupWithImage.js";
+import {Section} from "../scripts/components/Section.js";
+import {UserInfo} from "../scripts/components/UserInfo.js";
+import { 
+  initialCards,
+  elements,
+  imageScaleButton,
+  nameInput,
+  aboutInput
+  } from "../scripts/utils/constants.js";
 
 const page = document.querySelector(".page");
 export const editButton = document.querySelector(".profile__edit-button");
@@ -8,8 +21,7 @@ const popupCreateCard = document.querySelector(".popup__createcard");
 const popupCloseButton = document.querySelector(".popup__close");
 const popupCreateCloseButton = document.querySelector(".popup__createcardclose");
 const submitButton = document.querySelector(".popup__submit");
-const nameInput = document.querySelector(".popup__input_name");
-const aboutInput = document.querySelector(".popup__input_about");
+
 export const createSrcInput = document.querySelector(".popup__input_card-about");
 export const createNameInput = document.querySelector(".popup__input_card-name");
 const popupScaleImage = document.getElementById("image-scale");
@@ -17,8 +29,8 @@ export const addButton = document.querySelector(".profile__add-button");
 const profileTitle = document.querySelector(".profile__info-title");
 const profileSubtitle = document.querySelector(".profile__info-subtitle");
 const createButton = document.querySelector(".popup__submit_create");
-export const imageScaleButton = document.querySelector(".popup__imagescale");
-export const bigImage = document.querySelector(".popup__image");
+
+
 export const bigImageName = document.querySelector(".popup__imagename");
 const popupImageScale = document.querySelector(".popup__imagescale");
 const popupImageScaleCloseButton = document.querySelector(".popup__imagescaleclose");
@@ -47,16 +59,26 @@ function popupClose() {
   document.removeEventListener("keydown", closeOnEscape);
 }
 
-function formSubmitHandler(evt) {
-  evt.preventDefault();
-  profileTitle.textContent = nameInput.value;
-  profileSubtitle.textContent = aboutInput.value;
-}
+const form = new UserInfo({
+  nameSelector: '.popup__input_name',
+  aboutSelector: '.popup__input_about'
+});
+
+
+
+const formSubmitHandler = new PopupWithForm({
+  handleFormSubmit: (formData) => {
+    form.setUserInfo(formData.author, formData.about);
+  }
+}, popup);
 
 function popupCreateOpen() {
   popupCreateCard.classList.add("popup_opened");
   document.addEventListener("keydown", closeOnEscape);
 }
+
+
+
 
 function formSubmitAddCard(evt) {
   evt.preventDefault();
@@ -111,7 +133,7 @@ popupCloseButton.addEventListener("click", popupClose);
 popupCreateCloseButton.addEventListener("click", popupClose);
 popupImageScaleCloseButton.addEventListener("click", popupClose);
 popup.addEventListener("submit", formSubmitHandler);
-submitButton.addEventListener("click", popupClose);
+
 popup.addEventListener("click", closeOnClickOverlay);
 popupCreateCard.addEventListener("click", closeOnClickOverlay);
 popupScaleImage.addEventListener("click", closeOnClickOverlay);
