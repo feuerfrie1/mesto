@@ -66,7 +66,7 @@ export class FormValidator {
       this._form.querySelectorAll(this._inputSelector)
     );
     const buttonElement = this._form.querySelector(this._submitButtonSelector);
-    this._form.reset;
+    document.querySelector('.popup__container').reset();
     this._toggleButtonState(inputList, buttonElement);
     errorSpanList.forEach((span) => {
       span.classList.remove("popup__error_active");

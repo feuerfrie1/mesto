@@ -20,9 +20,22 @@ export class Popup {
     }
   }
 
+  _handleClickOverlayClose(evt) {
+    if (evt.target.classList.contains('popup')) {
+      this.close();
+    }
+  }
+
   _setEventListeners() {
     document.querySelector(".popup__close").addEventListener("click", () => {
       this.close();
     });
+    document.querySelector(".popup__imagescaleclose").addEventListener("click", () => {
+      this.close();
+    });
+    document.querySelector(".popup__createcardclose").addEventListener("click", () => {
+      this.close();
+    });
+    document.addEventListener('click', evt => this._handleClickOverlayClose(evt));
   }
 }
