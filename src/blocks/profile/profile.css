@@ -4,6 +4,8 @@
 @import url(../profile/__info-title/profile__info-title.css);
 @import url(../profile/__info/profile__info.css);
 @import url(../profile/__content/profile__content.css);
+@import url(../profile/__avatar/profile__avatar.css);
+@import url(../profile/__cover/profile__cover.css);
 
 .profile {
     width: 100%;

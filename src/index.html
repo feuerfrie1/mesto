@@ -17,7 +17,7 @@
                     <fieldset class="popup__field">
                         <input type="text" class="popup__input popup__input_name" name="name" id="nameinput" value="Жак-Ив Кусто" pattern="^[A-Za-zА-ЯЁёа-я\s-]+$" minlength="2" maxlength="40" required>
                         <span class="popup__error" id="nameinput-error"></span>
-                        <input type="text" class="popup__input popup__input_about" name="info" id="aboutinput" value="Исследователь океана" pattern="^[A-Za-zА-ЯЁёа-я\s-]+$" minlength="2" maxlength="200" required>
+                        <input type="text" class="popup__input popup__input_about" name="about" id="aboutinput" value="Исследователь океана" pattern="^[A-Za-zА-ЯЁёа-я\s-]+$" minlength="2" maxlength="200" required>
                         <span class="popup__error" id="aboutinput-error"></span>
                     </fieldset>
                     <button class="popup__submit" type="submit">Сохранить</button>
@@ -47,6 +47,24 @@
             </div>
         </section>
 
+        <section class="popup popup__confirm">
+            <div class="popup__container popup__container_confirm">
+                <p class="popup__title">Вы уверены?</p>
+                <button class="popup__submit popup__submit_confirm" type="submit">Да</button>
+                <button class="popup__confirmclose"></button>
+            </div>
+        </section>
+
+        <section class="popup popup__update-avatar" id="confirm">
+            <div class="popup__container popup__container_update-avatar">
+                <p class="popup__title">Обновить аватар</p>
+                <input type="url" class="popup__input popup__input_avatar-src" placeholder="Ссылка на картинку" name="avatar" id="avatarsrc" required>
+                <span class="popup__error" id="avatarsrc-error"></span>
+                <button class="popup__submit popup__submit_avatar" type="submit">Сохранить</button>
+                <button class="popup__update-avatar-close"></button>
+            </div>
+        </section>
+
         <header class="header">
             <img class=header__logo src="images/logo.svg" alt="Логотип">
         </header>
@@ -55,9 +73,10 @@
             <section class="profile">
                 <div class="profile__info">
                     <img class="profile__avatar" src="images/Avatar.png" alt="Фото профиля">
+                    <div class="profile__cover"></div>
                     <div class="profile__content">
-                        <h1 class="profile__info-title">Жак-Ив Кусто</h1>
-                        <h2 class="profile__info-subtitle">Исследователь океана</h2>
+                        <h1 class="profile__info-title"></h1>
+                        <h2 class="profile__info-subtitle"></h2>
                     </div>
                     <button class="profile__edit-button"></button>
                 </div>
@@ -71,7 +90,10 @@
                         <a href="#" class="elements__imagescale"><img class="elements__image" alt=""></a>
                         <div class="elements__content">
                             <p class="elements__title"></p>
-                            <button class="elements__like"></button>
+                            <div class = "elements__likes">
+                                <button class="elements__like"></button>
+                                <p class ="elements__like-amount">0</p>
+                            </div>
                         </div>
                     </div>
                 </template>

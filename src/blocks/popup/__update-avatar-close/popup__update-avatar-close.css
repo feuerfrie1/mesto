@@ -1,0 +1,13 @@
+.popup__update-avatar-close {
+    width: 58px;
+    height: 58px;
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    background-image: url('../../../images/CloseIcon.png');
+    margin-top: -64%;
+    margin-right: -107%;
+}

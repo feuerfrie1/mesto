@@ -36,6 +36,12 @@ export class Popup {
     document.querySelector(".popup__createcardclose").addEventListener("click", () => {
       this.close();
     });
+    document.querySelector(".popup__confirmclose").addEventListener("click", () => {
+      this.close();
+    });
+    document.querySelector(".popup__update-avatar-close").addEventListener("click", () => {
+      this.close();
+    });
     document.addEventListener('click', evt => this._handleClickOverlayClose(evt));
   }
 }

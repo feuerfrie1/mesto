@@ -6,6 +6,7 @@
 @import url(../elements/__delete/elements__delete.css);
 @import url(../elements/__like/_active/elements__like_active.css);
 @import url(../elements/__imagescale/elements__imagescale.css);
+@import url(../elements/__like-amount/elements__like-amount.css);
 
 .elements {
     max-width: 882px;
