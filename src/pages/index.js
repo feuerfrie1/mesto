@@ -118,7 +118,7 @@ const formSubmitAvatar = new PopupWithForm({
     api.changeAvatar('/users/me/avatar', data)
     .then((data) => {
       document.querySelector('.profile__avatar').setAttribute('src', data.avatar);
-      renderLoading(selector, text);
+      renderLoading(popupSelector, text);
     })
     .catch((err) => {
       console.log(`Ошибка: ${err}`)
@@ -126,10 +126,10 @@ const formSubmitAvatar = new PopupWithForm({
   }
 }, popupUpdateAvatar);
 
-function renderLoading(selector, text) {
-  selector.classList.remove('popup_opened');
-  selector.querySelector('.popup-container__button-add').textContent = text;
-  selector.firstElementChild.reset();
+function renderLoading(popupSelector, text) {
+  popupSelector.classList.remove('popup_opened');
+  popupSelector.querySelector('.popup__submit').textContent = text;
+  popupSelector.firstElementChild.reset();
 }
 
 formSubmitPlace.close();

@@ -70,14 +70,6 @@ export class Card {
     }
   }
 
-  //_isMyLike() {
-    //this._item.likes.some((item) => {
-      //if(item._id === 'b13c4e8ba6aa4955ac325afd') {
-        //this._element.querySelector('.elements__like').classList.add('elements__like-active');
-      //}
-    //})
-  //}
-
   _isMyLike(_item) {
   if (this._item._id === '60f3480b45ce6754456f4f17') {
   } else {

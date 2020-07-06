@@ -1,4 +1,4 @@
-# Project Work 8: [Место](https://feuerfrie1.github.io/mesto/)
+# Project Work 9: [Место](https://feuerfrie1.github.io/mesto/)
 
 ### Review
 
@@ -19,6 +19,10 @@
 ## Update 1.4
 
 Добавлены компоненты, а также финальная сборка проекта с помощью WebPack.
+
+## Update 1.5
+
+Добавлен новый функционал. Теперь можно менять фото профиля. Подключен API.
 
 ## Technologies
 

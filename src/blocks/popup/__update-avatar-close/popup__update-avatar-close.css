@@ -11,3 +11,8 @@
     margin-top: -64%;
     margin-right: -107%;
 }
+
+.popup__update-avatar-close:hover {
+    opacity: .6;
+    transition: .3s;
+}
