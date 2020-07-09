@@ -7,13 +7,11 @@
 @import url(../popup/__close/popup__close.css);
 @import url(../popup/__createcard/popup__createcard.css);
 @import url(../popup/__create/popup__create.css);
-@import url(../popup/__createcardclose/popup__createcardclose.css);
 @import url(../popup/__createcardname/popup__createcardname.css);
 @import url(../popup/__createcardabout/popup__createcardabout.css);
 @import url(../popup/__imagescale/popup__imagescale.css);
 @import url(../popup/__imagecontainer/popup__imagecontainer.css);
 @import url(../popup/__image/popup__image.css);
-@import url(../popup/__imagescaleclose/popup__imagescaleclose.css);
 @import url(../popup/__imagename/popup__imagename.css);
 @import url(../popup/__input/popup__input.css);
 @import url(../popup/__field/popup__field.css);
@@ -23,10 +21,8 @@
 @import url(../popup/__input/_card-name/popup__input_card-name.css);
 @import url(../popup/__input/_card-about/popup__input_card-about.css);
 @import url(../popup/__confirm/popup__confirm.css);
-@import url(../popup/__confirmclose/popup__confirmclose.css);
 @import url(../popup/__update-avatar/popup__update-avatar.css);
 @import url(../popup/__container/_update-avatar/popup__container_update-avatar.css);
-@import url(../popup/__update-avatar-close/popup__update-avatar-close.css);
 
 .popup {
     display: flex;

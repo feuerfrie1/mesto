@@ -19,7 +19,8 @@ export const imageScaleButton = document.querySelector(".popup__imagescale");
 export const bigImage = document.querySelector(".popup__image");
 export const bigImageName = document.querySelector(".popup__imagename");
 export const popupImageScale = document.querySelector(".popup__imagescale");
-export const popupImageScaleCloseButton = document.querySelector(".popup__imagescaleclose");
+export const popupImageScaleCloseButton = document.querySelector(".popup__close_imagescale");
+export const popupAvatarClose = document.querySelector(".popup__close_avatar");
 export const formInfo = document.querySelector(".popup__container");
 export const elements = '.elements';
 export const avatar = '.profile__avatar';
@@ -28,6 +29,7 @@ export const popupConfirm = document.querySelector(".popup__confirm");
 export const popupSubmitConfirm = document.querySelector(".popup__submit_confirm");
 export const profileCover = document.querySelector(".profile__cover");
 export const popupSubmitAvatar = document.querySelector(".popup__submit_avatar");
+export const cardTemplate = document.querySelector(".card");
 
 export const object = {
   formSelector: ".popup__container",

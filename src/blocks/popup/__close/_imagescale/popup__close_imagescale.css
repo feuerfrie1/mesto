@@ -1,4 +1,4 @@
-.popup__imagescaleclose {
+.popup__close_imagescale {
     width: 58px;
     height: 58px;
     padding: 0;
@@ -8,19 +8,19 @@
     background-color: transparent;
     background-size: 58px;
     cursor: pointer;
-    background-image: url('../../../images/CloseIcon.png');
+    background-image: url('../../../../images/CloseIcon.png');
     bottom: 100%;
     left: 100%;
     position: absolute;
 }
 
-.popup__imagescaleclose:hover {
+.popup__close_imagescale:hover {
     opacity: .6;
     transition: .3s;
 }
 
 @media screen and (max-width: 500px) {
-    .popup__imagescaleclose {
+    .popup__close_imagescale {
         width: 40px;
         height: 40px;
         background-size: 40px;

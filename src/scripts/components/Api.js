@@ -1,73 +1,115 @@
 export class Api {
-    constructor({baseUrl}) {
-      this._baseUrl = baseUrl;
-    };
+  constructor(options) {
+    this.baseUrl = options.baseUrl;
+    this.headers = options.headers;
+  }
 
-    _fetch(url, params) {
-      params.headers = {
-        authorization: '2eeb39c4-648d-45ea-9400-2121e3e34a4d',
-        'Content-Type': 'application/json'
-      };
-    return fetch(this._baseUrl + url, params)
+  getUserInfo() {
+    return fetch(`${this.baseUrl}/users/me`, {
+      headers: this.headers,
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`error${res.status}`);
+    });
+  }
+
+  getInitialCards() {
+    return fetch(`${this.baseUrl}/cards`, {
+      headers: this.headers,
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`error${res.status}`);
+    });
+  }
+
+  updateUserInfo(userName, userJob) {
+    return fetch(`${this.baseUrl}/users/me`, {
+      method: "PATCH",
+      headers: this.headers,
+      body: JSON.stringify({
+        name: userName,
+        about: userJob,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`error${res.status}`);
+    });
+  }
+
+  addNewCard(cardName, cardLink) {
+    return fetch(`${this.baseUrl}/cards`, {
+      method: "POST",
+      headers: this.headers,
+      body: JSON.stringify({
+        name: cardName,
+        link: cardLink,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`error${res.status}`);
+    });
+  }
+
+  deleteCard(id) {
+    return fetch(`${this.baseUrl}/cards/${id}`, {
+      method: "DELETE",
+      headers: this.headers,
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`error${res.status}`);
+    });
+  }
+
+  putLike(cardId) {
+    return fetch(`${this.baseUrl}/cards/likes/${cardId}`, {
+      method: "PUT",
+      headers: this.headers,
+    })
       .then((res) => {
-        if(!res.ok) {
-          return Promise.reject(res.status);
-        } else {
+        if (res.ok) {
           return res.json();
         }
-      });
+        return Promise.reject(`Ошибка: ${res.status} ${res.statusText}`);
+      })
+      .then((data) => data);
   }
-  
-    getInitialCards(url) {
-      return this._fetch(url, {
-        method: 'GET'
-      })
-    }
 
-    getUserInterface(url) {
-      return this._fetch(url, {
-        method: 'GET'
+  deleteLike(cardId) {
+    return fetch(`${this.baseUrl}/cards/likes/${cardId}`, {
+      method: "DELETE",
+      headers: this.headers,
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Ошибка: ${res.status} ${res.statusText}`);
       })
-    }
-
-    sendUserInfo(url, data) {
-      return this._fetch(url, {
-        method: 'PATCH',
-        body: JSON.stringify({
-          name: `${data.name}`,
-          about: `${data.about}`
-        })
-      })
-    }
-
-    sendPlaceCard(url, data) {
-      return this._fetch(url, {
-        method: 'POST',
-        body: JSON.stringify({
-          name: `${data.name}`,
-          link: `${data.link}`
-        })
-      })
-    }
-
-    deleteCard(url) {
-      return this._fetch(url, {
-        method: 'DELETE'
-      })
-    }
-
-    putLike(url) {
-      return this._fetch(url, {
-        method: 'PUT'
-        })
-    }
-  
-    changeAvatar(url, data) {
-      return this._fetch(url, {
-        method: 'PATCH',
-        body: JSON.stringify({
-          avatar: `${data.avatar}`
-        })
-      })
-    }
+      .then((data) => data);
   }
+
+  setUserAvatar(userAvatar) {
+    return fetch(`${this.baseUrl}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this.headers,
+      body: JSON.stringify({
+        avatar: userAvatar,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Ошибка: ${res.status} ${res.statusText}`);
+    });
+  }
+}

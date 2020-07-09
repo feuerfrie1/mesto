@@ -1,4 +1,4 @@
-.popup__update-avatar-close {
+.popup__close_avatar {
     width: 58px;
     height: 58px;
     padding: 0;
@@ -7,12 +7,12 @@
     color: inherit;
     background-color: transparent;
     cursor: pointer;
-    background-image: url('../../../images/CloseIcon.png');
+    background-image: url('../../../../images/CloseIcon.png');
     margin-top: -64%;
     margin-right: -107%;
 }
 
-.popup__update-avatar-close:hover {
+.popup__close_avatar:hover {
     opacity: .6;
     transition: .3s;
 }
