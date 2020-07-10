@@ -56,7 +56,7 @@ const cardList = new Section(
             popupImage.open(item);
           },
         },
-        () => confirmPopup.submit(item._id)
+        () => confirmPopup.submit(item._id, {userId})
       );
       const cardElement = card.generateCard();
       cardList.prependItem(cardElement);
@@ -80,7 +80,7 @@ const openFormPic = new PopupWithForm(popupCreateCard, {
               popupImage.open(res);
             },
           },
-          () => confirmPopup.submit(res._id)
+          () => confirmPopup.submit((res._id), {userId})
         );
         const cardElement = card.generateCard();
         cardList.prependItem(cardElement);
@@ -98,8 +98,13 @@ confirmPopup.submit = function (_id) {
   popupSubmitConfirm.addEventListener("click", (evt) => {
     evt.preventDefault();
     document.getElementById(_id).remove();
-    api.deleteCard(_id);
-    this.close();
+    api.deleteCard(_id)
+    .then(() => {
+      confirmPopup.close();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   });
 };
 
@@ -111,15 +116,20 @@ export const formProfileInfo = {
 
 const userInfo = new UserInfo(formProfileInfo);
 
-api
-  .getUserInfo()
+api.getUserInfo()
   .then((user) => {
     userInfo.getUserInfo(user.name, user.about, user.avatar);
     userInfo.setUserInfo(user);
+
   })
   .catch((err) => {
     console.log(err);
   });
+
+  let userId = api.getUserInfo()
+  .then((res) => {
+    userId = res;
+    });
 
 const openFormInfo = new PopupWithForm(popup, {
   submitForm: (item) => {

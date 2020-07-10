@@ -1,11 +1,7 @@
+
+
 export class Card {
-  constructor(
-    cardSelector,
-    putLike,
-    deleteLike,
-    { data, handleCardClick },
-    deleteCard
-  ) {
+  constructor(cardSelector, putLike, deleteLike, { data, handleCardClick }, deleteCard, {userId}) {
     this._name = data.name;
     this._picture = data.link;
     this._likes = data.likes;
@@ -16,6 +12,7 @@ export class Card {
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
     this._deleteCard = deleteCard;
+    this._userId = userId;
   }
 
   _getTemplate() {
@@ -31,10 +28,10 @@ export class Card {
     return this._element;
   }
 
-  _whoIsOwner(_owner) {
-    if (this._owner === "b13c4e8ba6aa4955ac325afd") {
+  _whoIsOwner() {
+    if (this._owner === this._userId) {
     } else {
-      this._element.querySelector(".elements__delete").style.display = "none";
+        this._element.querySelector('.elements__delete').style.display = 'none';
     }
   }
 
@@ -76,7 +73,7 @@ export class Card {
     cardItem.alt = this._name;
     cardHeader.textContent = this._name;
     this._whoIsOwner(this._owner);
-    if (this._likes.find((item) => item._id === "b13c4e8ba6aa4955ac325afd")) {
+    if (this._likes.find((item) => item._id === this._userId)) {
       this._element
         .querySelector(".elements__like")
         .classList.add("elements__like_active");
