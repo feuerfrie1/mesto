@@ -21,9 +21,10 @@ import {
   popupConfirm,
   popupUpdateAvatar,
   profileCover,
-  popupImageScale,
   cardTemplate,
   submitButton,
+  popupSubmitConfirm,
+  popupSubmitAvatar,
 } from "../scripts/utils/constants.js";
 
 export const token = {
@@ -35,8 +36,6 @@ export const token = {
 };
 
 export const api = new Api(token);
-
-
 
 const popupImage = new PopupWithImage(popupScaleImage);
 
@@ -54,10 +53,10 @@ const cardList = new Section(
         {
           data: item,
           handleCardClick: () => {
-            popupImageScale.open(item);
+            popupImage.open(item);
           },
         },
-        () => popupConfirm.submit(item._id)
+        () => confirmPopup.submit(item._id)
       );
       const cardElement = card.generateCard();
       cardList.prependItem(cardElement);
@@ -78,10 +77,10 @@ const openFormPic = new PopupWithForm(popupCreateCard, {
           {
             data: res,
             handleCardClick: () => {
-              popupImageScale.open(res);
+              popupImage.open(res);
             },
           },
-          () => popupConfirm.submit(res._id)
+          () => confirmPopup.submit(res._id)
         );
         const cardElement = card.generateCard();
         cardList.prependItem(cardElement);
@@ -96,7 +95,7 @@ const openFormPic = new PopupWithForm(popupCreateCard, {
 const confirmPopup = new Popup(popupConfirm);
 confirmPopup.submit = function (_id) {
   confirmPopup.open();
-  popupConfirm.addEventListener("submit", (evt) => {
+  popupSubmitConfirm.addEventListener("click", (evt) => {
     evt.preventDefault();
     document.getElementById(_id).remove();
     api.deleteCard(_id);
@@ -126,7 +125,7 @@ const openFormInfo = new PopupWithForm(popup, {
   submitForm: (item) => {
     renderLoading(popup);
     api
-      .updateUserInfo(item.name, item.link)
+      .updateUserInfo(item.name, item.about)
       .then((res) => {
         userInfo.setUserInfo(res);
         openFormInfo.close();
@@ -150,7 +149,7 @@ const updateAvatar = new PopupWithForm(popupUpdateAvatar, {
   submitForm: (item) => {
     renderLoading(popupUpdateAvatar);
     api
-      .setUserAvatar(item.link)
+      .setUserAvatar(item.avatar)
       .then((item) => {
         userInfo.writeUserAvatar(item);
       })
@@ -163,10 +162,9 @@ const updateAvatar = new PopupWithForm(popupUpdateAvatar, {
   },
 });
 
-function renderLoading(popupSelector, text) {
-  popupSelector.classList.remove("popup_opened");
-  popupSelector.querySelector(".popup__submit").textContent = text;
-  popupSelector.firstElementChild.reset();
+function renderLoading(popupSelector) {
+  const formButton = popupSelector.querySelector(".popup__submit");
+  formButton.textContent = "Сохранение...";
 }
 
 const formValidatorAuthor = new FormValidator(object, formInfo);
@@ -185,6 +183,7 @@ addButton.addEventListener("click", function () {
   openFormPic.open();
 });
 profileCover.addEventListener("click", function () {
+  popupSubmitAvatar.textContent = "Сохранить";
   formValidatorAvatar.clearError();
   updateAvatar.open();
 });

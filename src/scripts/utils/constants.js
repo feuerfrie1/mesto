@@ -30,6 +30,7 @@ export const popupSubmitConfirm = document.querySelector(".popup__submit_confirm
 export const profileCover = document.querySelector(".profile__cover");
 export const popupSubmitAvatar = document.querySelector(".popup__submit_avatar");
 export const cardTemplate = document.querySelector(".card");
+export const popupInputAvatar = document.querySelector(".popup__input_avatar-src");
 
 export const object = {
   formSelector: ".popup__container",

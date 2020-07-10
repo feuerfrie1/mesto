@@ -40,7 +40,6 @@ export class Card {
 
   _cardDelete() {
     this._deleteCard();
-    this._element.removeEventListener("click", this._cardHandler);
   }
 
   _cardClickHandler(evt) {
