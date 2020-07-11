@@ -25,6 +25,7 @@ import {
   submitButton,
   popupSubmitConfirm,
   popupSubmitAvatar,
+  popupImageScale,
 } from "../scripts/utils/constants.js";
 
 export const token = {
@@ -39,24 +40,21 @@ export const api = new Api(token);
 
 const popupImage = new PopupWithImage(popupScaleImage);
 
-api.getInitialCards("/cards").then((arr) => {
-  cardList.renderItems(arr.reverse());
-});
-
 const cardList = new Section(
   {
-    renderer: (item) => {
+    renderer: (item, userId) => {
       const card = new Card(
         cardTemplate,
-        () => api.putLike(item._id),
-        () => api.deleteLike(item._id),
+        () => api.putLike(item._id, userId),
+        () => api.deleteLike(item._id, userId),
         {
           data: item,
+          userId,
           handleCardClick: () => {
             popupImage.open(item);
           },
         },
-        () => confirmPopup.submit(item._id, {userId})
+        () => confirmPopup.submit(item._id, userId)
       );
       const cardElement = card.generateCard();
       cardList.prependItem(cardElement);
@@ -80,7 +78,7 @@ const openFormPic = new PopupWithForm(popupCreateCard, {
               popupImage.open(res);
             },
           },
-          () => confirmPopup.submit((res._id), {userId})
+          () => confirmPopup.submit(res._id)
         );
         const cardElement = card.generateCard();
         cardList.prependItem(cardElement);
@@ -94,13 +92,15 @@ const openFormPic = new PopupWithForm(popupCreateCard, {
 
 const confirmPopup = new Popup(popupConfirm);
 confirmPopup.submit = function (_id) {
+  confirmPopup._setEventListeners();
   confirmPopup.open();
   popupSubmitConfirm.addEventListener("click", (evt) => {
     evt.preventDefault();
     document.getElementById(_id).remove();
-    api.deleteCard(_id)
-    .then(() => {
-      confirmPopup.close();
+    api
+      .deleteCard(_id)
+      .then(() => {
+        confirmPopup.close();
       })
       .catch((err) => {
         console.log(err);
@@ -116,20 +116,17 @@ export const formProfileInfo = {
 
 const userInfo = new UserInfo(formProfileInfo);
 
-api.getUserInfo()
-  .then((user) => {
-    userInfo.getUserInfo(user.name, user.about, user.avatar);
-    userInfo.setUserInfo(user);
-
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
-  let userId = api.getUserInfo()
-  .then((res) => {
-    userId = res;
-    });
+export let userId = Promise.all([
+  api.getUserInfo(),
+  api.getInitialCards(),
+]).then((res) => {
+  const user = res[0];
+  const cards = res[1];
+  userId = user._id;
+  userInfo.getUserInfo(user.name, user.about, user.avatar);
+  userInfo.setUserInfo(user);
+  cardList.renderItems(cards.reverse(), user._id);
+});
 
 const openFormInfo = new PopupWithForm(popup, {
   submitForm: (item) => {

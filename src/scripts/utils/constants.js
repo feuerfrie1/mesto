@@ -4,7 +4,6 @@ export const editButton = document.querySelector(".profile__edit-button");
 export const popup = document.querySelector(".popup");
 export const popupCreateCard = document.querySelector(".popup__createcard");
 export const popupCloseButton = document.querySelector(".popup__close");
-export const popupCreateCloseButton = document.querySelector(".popup__createcardclose");
 export const submitButton = document.querySelector(".popup__submit");
 export const nameInput = document.querySelector(".popup__input_name");
 export const aboutInput = document.querySelector(".popup__input_about");
