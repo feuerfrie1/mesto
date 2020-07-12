@@ -7,12 +7,12 @@ export class PopupWithForm extends Popup {
     this._popupSelector = _popupSelector;
   }
 
-  _setEventListeners() {
+  setEventListeners() {
     this._submit = this._setSubmitForm.bind(this);
     this._popupSelector.addEventListener("submit", this._submit, {
-      once: true,
+      once: false,
     });
-    super._setEventListeners();
+    super.setEventListeners();
   }
 
   _setSubmitForm(evt) {

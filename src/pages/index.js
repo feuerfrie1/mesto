@@ -25,7 +25,6 @@ import {
   submitButton,
   popupSubmitConfirm,
   popupSubmitAvatar,
-  popupImageScale,
 } from "../scripts/utils/constants.js";
 
 export const token = {
@@ -58,6 +57,7 @@ const cardList = new Section(
       );
       const cardElement = card.generateCard();
       cardList.prependItem(cardElement);
+      popupImage.setEventListeners();
     },
   },
   elements
@@ -89,10 +89,10 @@ const openFormPic = new PopupWithForm(popupCreateCard, {
     openFormPic.close();
   },
 });
+openFormPic.setEventListeners();
 
 const confirmPopup = new Popup(popupConfirm);
 confirmPopup.submit = function (_id) {
-  confirmPopup._setEventListeners();
   confirmPopup.open();
   popupSubmitConfirm.addEventListener("click", (evt) => {
     evt.preventDefault();
@@ -107,6 +107,7 @@ confirmPopup.submit = function (_id) {
       });
   });
 };
+confirmPopup.setEventListeners();
 
 export const formProfileInfo = {
   profileAuthor: document.querySelector(".profile__info-title"),
@@ -142,6 +143,7 @@ const openFormInfo = new PopupWithForm(popup, {
       });
   },
 });
+openFormInfo.setEventListeners();
 
 const openInfoForm = () => {
   formValidatorAuthor.clearError();
@@ -168,6 +170,7 @@ const updateAvatar = new PopupWithForm(popupUpdateAvatar, {
       });
   },
 });
+updateAvatar.setEventListeners();
 
 function renderLoading(popupSelector) {
   const formButton = popupSelector.querySelector(".popup__submit");
